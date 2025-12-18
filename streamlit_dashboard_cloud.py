@@ -99,8 +99,9 @@ def show_executive_summary(monthly_sales, customer_metrics, regional_analysis):
     if monthly_sales.empty:
         st.warning("Chưa có dữ liệu. Vui lòng kiểm tra lại Pipeline.")
         return
-
-    # CSS tùy chỉnh cho KPI cards: Nền trắng, chữ đen
+    # Tùy chỉnh giao diện KPI cards cho nền trắng, chữ đen
+    with st.container():
+            # CSS tùy chỉnh cho KPI cards: Nền trắng, chữ đen
         st.markdown("""
             <style>
             [data-testid="stMetric"] {
