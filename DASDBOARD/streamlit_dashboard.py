@@ -34,7 +34,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # =============================================================================
-# 2. KẾT NỐI SNOWFLAKE (Dành riêng cho SiS)
+# 2. KẾT NỐI SNOWFLAKE
 # =============================================================================
 
 @st.cache_resource
@@ -100,6 +100,19 @@ def show_executive_summary(monthly_sales, customer_metrics, regional_analysis):
     if monthly_sales.empty:
         st.warning("Chưa có dữ liệu. Vui lòng kiểm tra lại Pipeline.")
         return
+
+    # CSS tùy chỉnh cho KPI cards: Nền trắng, chữ đen
+    st.markdown("""
+        <style>
+        [data-testid="stMetric"] {
+            background-color: #ffffff !important;
+            color: #000000 !important;
+        }
+        [data-testid="stMetricLabel"], [data-testid="stMetricValue"] {
+            color: #000000 !important;
+        }
+        </style>
+    """, unsafe_allow_html=True)
 
     # --- KPI CARDS ---
     total_revenue = monthly_sales['TOTAL_REVENUE'].sum()
